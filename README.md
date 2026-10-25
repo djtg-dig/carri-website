@@ -19,12 +19,11 @@ Ouvrir ensuite `http://localhost:4173`.
 3. Choisir **None** comme framework preset.
 4. Laisser vide la commande de build et définir le dossier de sortie sur `.`.
 5. Déployer, puis associer le domaine officiel de Carri Business dans **Custom domains**.
-6. Remplacer `YOUR-PRODUCTION-DOMAIN` dans `sitemap.xml` par ce domaine confirmé, puis redéployer.
+6. Associer le domaine officiel `carribusiness.com` dans **Custom domains**, puis vérifier que le sitemap est accessible à l’adresse `https://carribusiness.com/sitemap.xml`.
 
 ## Informations à compléter avant publication
 
-- Domaine officiel (pour le sitemap et les balises canoniques/Open Graph).
-- Coordonnées, réseaux sociaux et canal de réception des demandes de contact officiels.
+- Réseaux sociaux officiels et éventuel canal de réception des demandes par formulaire.
 - Mentions légales complètes : éditeur et informations d’hébergement.
 - Actualités, formations et détails des secteurs lorsqu’ils sont confirmés.
 

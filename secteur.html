@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Les secteurs d'activité de Carri Business.">
+  <meta name="description" content="Découvrez les secteurs d’activité de Carri Business.">
   <title>Nos activités | Carri Business</title>
   <link rel="icon" href="assets/images/icon.png">
   <link rel="stylesheet" href="assets/css/styles.css">
-</head>
+<meta name="robots" content="noindex,follow"><link rel="canonical" href="https://carribusiness.com/activites.html"><meta property="og:title" content="Nos activités | Carri Business"><meta property="og:description" content="Découvrez les secteurs d’activité de Carri Business."><meta property="og:type" content="website"><meta property="og:url" content="https://carribusiness.com/activites.html"><meta property="og:image" content="https://carribusiness.com/assets/images/carri/hero-business.jpg"><meta property="og:locale" content="fr_CD"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Nos activités | Carri Business"><meta name="twitter:description" content="Découvrez les secteurs d’activité de Carri Business."><meta name="twitter:image" content="https://carribusiness.com/assets/images/carri/hero-business.jpg"><meta name="robots" content="noindex,follow"></head>
 <body>
   <a class="skip" href="#main">Aller au contenu</a>
   <div id="navbar"></div>
@@ -21,7 +21,7 @@
     const sector = new URLSearchParams(location.search).get('activite') || 'technologies';
     const pageContent = document.getElementById('page-content');
     const title = document.getElementById('title');
-    const sidebar = `<aside class="aside"><h3>Nos activités</h3><a href="secteur.html?activite=technologies">Technologies numériques</a><a href="secteur.html?activite=formation">Formation</a><a href="secteur.html?activite=environnement">Environnement</a><a href="secteur.html?activite=commerce">Commerce général</a><a href="secteur.html?activite=agrobusiness">Agrobusiness</a></aside>`;
+    const sidebar = `<aside class="aside"><h3>Nos activités</h3><a href="/activites/technologies-et-services-numeriques/">Technologies numériques</a><a href="/activites/formation/">Formation</a><a href="/activites/environnement/">Environnement</a><a href="/activites/commerce-general/">Commerce général</a><a href="/activites/agrobusiness/">Agrobusiness</a></aside>`;
     const simpleSectors = {
       environnement: { title:'Environnement', description:'Carri Business inscrit l’environnement parmi ses orientations de développement. Les initiatives et modalités opérationnelles seront communiquées au fur et à mesure de leur confirmation.', items:['Orientation environnementale de l’entreprise','Initiatives à documenter lors de leur mise en œuvre','Approche responsable dans le développement des activités'] },
       commerce: { title:'Commerce général', description:'Le commerce général fait partie des secteurs retenus par Carri Business. Les offres et activités spécifiques seront présentées lorsqu’elles seront confirmées.', items:['Activités commerciales en structuration','Informations à compléter selon les offres disponibles','Développement progressif et responsable'] },
