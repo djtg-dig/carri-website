@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Replace YOUR-PRODUCTION-DOMAIN with Carri Business's confirmed domain before deployment. -->
+  <url><loc>https://YOUR-PRODUCTION-DOMAIN/</loc></url>
+  <url><loc>https://YOUR-PRODUCTION-DOMAIN/notre-entreprise.html</loc></url>
+  <url><loc>https://YOUR-PRODUCTION-DOMAIN/activites.html</loc></url>
+  <url><loc>https://YOUR-PRODUCTION-DOMAIN/produits-services.html</loc></url>
+  <url><loc>https://YOUR-PRODUCTION-DOMAIN/djana-academy.html</loc></url>
+  <url><loc>https://YOUR-PRODUCTION-DOMAIN/actualites.html</loc></url>
+  <url><loc>https://YOUR-PRODUCTION-DOMAIN/contact.html</loc></url>
+  <url><loc>https://YOUR-PRODUCTION-DOMAIN/mentions-legales.html</loc></url>
+  <url><loc>https://YOUR-PRODUCTION-DOMAIN/politique-confidentialite.html</loc></url>
+</urlset>

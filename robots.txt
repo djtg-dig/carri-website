@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Replace the placeholder origin in sitemap.xml with the confirmed production domain before deployment.
+Sitemap: /sitemap.xml
