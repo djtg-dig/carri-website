@@ -1,4 +1,5 @@
 import fs from 'node:fs';
+import path from 'node:path';
 
 const site = 'https://carribusiness.com';
 const pages = {
@@ -19,10 +20,32 @@ for (const [file, [title, description, path, image]] of Object.entries(pages)) {
   html = html.replace(/<title>[\s\S]*?<\/title>/, `<title>${title}</title>`);
   html = html.replace(/<meta name="description"[^>]*>/, `<meta name="description" content="${description}">`);
   html = html.replace(/<meta property="og:[^"]+"[^>]*>/g, '').replace(/<meta name="twitter:[^"]+"[^>]*>/g, '');
-  html = html.replace(/<script type="application\/ld\+json"(?: id="organization-schema")?>[\s\S]*?"@type":"Organization"[\s\S]*?<\/script>/g, '');
-  html = html.replace(/<link rel="canonical"[^>]*>/g, '').replace(/<meta name="robots" content="noindex"\s*\/?>/g, '');
+  html = html.replace(/<script\b[^>]*\btype="application\/ld\+json"[^>]*>[\s\S]*?"@type":"Organization"[\s\S]*?<\/script>/g, '');
+  html = html.replace(/<link rel="canonical"[^>]*>/g, '').replace(/<meta name="robots"[^>]*>/g, '');
   const canonical = `${site}${path}`;
   const meta = `<link rel="canonical" href="${canonical}"><meta property="og:title" content="${title}"><meta property="og:description" content="${description}"><meta property="og:type" content="website"><meta property="og:url" content="${canonical}"><meta property="og:image" content="${site}${image}"><meta property="og:locale" content="fr_CD"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${title}"><meta name="twitter:description" content="${description}"><meta name="twitter:image" content="${site}${image}">${file === 'secteur.html' ? '<meta name="robots" content="noindex,follow">' : ''}${file === 'index.html' ? `<script id="organization-schema" type="application/ld+json">${org}</script>` : ''}`;
   html = html.replace('</head>', `${meta}</head>`);
+  fs.writeFileSync(file, html);
+}
+
+const brandImage = `${site}/assets/images/brand/carri-business-social.png`;
+const brandIcons = '<link rel="icon" href="/assets/images/brand/favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="16x16" href="/assets/images/brand/favicon-16x16.png"><link rel="icon" type="image/png" sizes="32x32" href="/assets/images/brand/favicon-32x32.png"><link rel="icon" type="image/png" sizes="48x48" href="/assets/images/brand/favicon-48x48.png"><link rel="apple-touch-icon" sizes="180x180" href="/assets/images/brand/apple-touch-icon.png">';
+
+function htmlFiles(directory) {
+  return fs.readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
+    const fullPath = path.join(directory, entry.name);
+    return entry.isDirectory() ? htmlFiles(fullPath) : entry.name.endsWith('.html') ? [fullPath] : [];
+  });
+}
+
+for (const file of htmlFiles('.')) {
+  let html = fs.readFileSync(file, 'utf8');
+  html = html.replace(/<link rel="(?:icon|apple-touch-icon)"[^>]*>/g, '');
+  html = html.replace(/<meta property="og:image:(?:width|height)"[^>]*>/g, '');
+  html = html.replace(/<meta property="og:image"[^>]*>/g, `<meta property="og:image" content="${brandImage}">`);
+  html = html.replace(/<meta name="twitter:image"[^>]*>/g, `<meta name="twitter:image" content="${brandImage}">`);
+  if (!html.includes('property="og:image"')) html = html.replace('</head>', `<meta property="og:image" content="${brandImage}"></head>`);
+  if (!html.includes('name="twitter:image"')) html = html.replace('</head>', `<meta name="twitter:image" content="${brandImage}"></head>`);
+  html = html.replace('</head>', `<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">${brandIcons}</head>`);
   fs.writeFileSync(file, html);
 }
