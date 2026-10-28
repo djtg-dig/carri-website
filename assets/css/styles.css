@@ -16,3 +16,8 @@
 
 /* Identité officielle Carri Business */
 .brand-logo{display:inline-flex;flex:0 0 auto;line-height:0}.brand-logo picture,.brand-logo img{display:block}.brand-logo img{width:62px;height:auto;max-height:70px;object-fit:contain}.brand-logo-footer img{width:104px;max-height:128px}.footer-about .brand-logo{margin-bottom:20px}@media(max-width:650px){.brand-logo img{width:43px;max-height:46px}.brand-logo-footer img{width:94px;max-height:115px}}
+
+/* En-tête fixe et navigation responsive */
+:root{--site-header-height:112px}html{scroll-padding-top:var(--site-header-height);overflow-x:clip}body{padding-top:var(--site-header-height);overflow-x:clip}.site-header{position:fixed;top:0;left:0;width:100%;z-index:1000;background:#fff}.nav-wrap>nav{margin-left:auto}.eyebrow{display:block}.eyebrow:before{display:none}
+@media(max-width:980px){.nav-wrap{gap:12px}.nav-toggle{display:inline-grid;place-items:center;flex:0 0 44px;width:44px;height:44px;margin-left:auto;padding:0;touch-action:manipulation}.nav-wrap>nav{margin-left:0}.nav-links{top:100%;left:0;right:0;gap:0;padding:12px 20px;background:#fff;box-shadow:0 8px 14px rgba(3,26,48,.1);max-height:calc(100vh - var(--site-header-height));overflow-y:auto}.nav-links li,.nav-links a{width:100%}.nav-links a{display:block;padding:10px 0;min-height:44px}.nav-toggle:focus-visible{outline:2px solid var(--gold);outline-offset:3px}}
+@media(max-width:650px){:root{--site-header-height:140px}.site-header .brand-logo img{width:54px;max-height:56px}.site-header .nav-wrap{min-height:76px}.site-header .nav-links{padding:12px 16px}.site-header .nav-links{top:100%}}

@@ -30,3 +30,7 @@ Ouvrir ensuite `http://localhost:4173`.
 ## Photographies
 
 Les images dans `assets/images/carri/` sont des versions web optimisées des photographies fournies dans le dossier `photos`. Elles sont utilisées uniquement pour illustrer le secteur numérique ; aucun visuel généré par IA n’a été employé.
+
+
+activer le serveur en local"
+python3 -m http.server 8000

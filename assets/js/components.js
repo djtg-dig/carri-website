@@ -17,11 +17,21 @@ async function loadSharedComponents() {
   document.querySelectorAll('[data-year]').forEach((el) => { el.textContent = new Date().getFullYear(); });
   const toggle = document.querySelector('.nav-toggle');
   const links = document.querySelector('.nav-links');
+  const closeMenu = () => {
+    links?.classList.remove('open');
+    toggle?.setAttribute('aria-expanded', 'false');
+    if (toggle) {
+      toggle.setAttribute('aria-label', 'Ouvrir le menu');
+      toggle.textContent = '☰';
+    }
+  };
   toggle?.addEventListener('click', () => {
-    const open = links.classList.toggle('open');
+    const open = links?.classList.toggle('open') ?? false;
     toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
     toggle.textContent = open ? '×' : '☰';
   });
+  links?.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
 }
 
 if (document.readyState === 'loading') {
