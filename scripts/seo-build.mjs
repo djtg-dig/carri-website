@@ -14,7 +14,7 @@ const pages = {
   'politique-confidentialite.html': ['Politique de confidentialité | Carri Business', 'Politique de confidentialité du site institutionnel de Carri Business.', '/politique-confidentialite.html', '/assets/images/carri/hero-business.jpg'],
   'secteur.html': ['Nos activités | Carri Business', 'Découvrez les secteurs d’activité de Carri Business.', '/activites.html', '/assets/images/carri/hero-business.jpg']
 };
-const org = JSON.stringify({ '@context':'https://schema.org', '@type':'Organization', name:'Carri Business', url:site, email:'contact@carribusiness.com', telephone:'+243819339737', address:{ '@type':'PostalAddress', addressLocality:'Kinshasa', addressCountry:'CD' } });
+const org = JSON.stringify({ '@context':'https://schema.org', '@graph': [{ '@type':'Organization', name:'Carri Business', url:site, email:'contact@carribusiness.com', telephone:'+243819339737', address:{ '@type':'PostalAddress', addressLocality:'Kinshasa', addressCountry:'CD' } }, { '@type':'WebSite', name:'Carri Business', url:site }] });
 for (const [file, [title, description, path, image]] of Object.entries(pages)) {
   let html = fs.readFileSync(file, 'utf8');
   html = html.replace(/<title>[\s\S]*?<\/title>/, `<title>${title}</title>`);
